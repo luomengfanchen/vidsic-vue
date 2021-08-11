@@ -1,10 +1,14 @@
 <template>
+    <vidsic-sidebar />
     <router-view />
 </template>
 
 <script>
+import vidsicSidebar from './components/vidsic-sidebar.vue'
+
 export default {
     name: 'App',
+    components: { vidsicSidebar }
 }
 </script>
 
