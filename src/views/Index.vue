@@ -4,105 +4,60 @@
     <div class="index-container">
         <div class="index-top"></div>
 
-        <div class="index-btn-group">
-            <div class="index-btn"></div>
-            <div class="index-btn"></div>
-            <div class="index-btn"></div>
-            <div class="index-btn"></div>
+        <div class="title-container">
+            <h2 class="index-title">最新视频</h2>
+        </div>
+        <div class="card-container">
+            <VideoCard></VideoCard>
+            <VideoCard></VideoCard>
+            <VideoCard></VideoCard>
+            <VideoCard></VideoCard>
+            <VideoCard></VideoCard>
+            <VideoCard></VideoCard>
+            <VideoCard></VideoCard>
+            <VideoCard></VideoCard>
+            <VideoCard></VideoCard>
         </div>
 
-        <table class="index-table">
-            <tr class="index-table-tr">
-                <th class="index-table-th" colspan="2">视频榜单</th>
-            </tr>
-            <tr class="index-table-tr">
-                <td class="index-table-td index-table-td-rank">1</td>
-                <td class="index-table-td">我的名字竟然能如此之长</td>
-            </tr>
-            <tr class="index-table-tr">
-                <td class="index-table-td index-table-td-rank">1</td>
-                <td class="index-table-td">我的名字竟然能如此之长</td>
-            </tr>
-            <tr class="index-table-tr">
-                <td class="index-table-td index-table-td-rank">1</td>
-                <td class="index-table-td">我的名字竟然能如此之长</td>
-            </tr>
-            <tr class="index-table-tr">
-                <td class="index-table-td index-table-td-rank">1</td>
-                <td class="index-table-td">我的名字竟然能如此之长</td>
-            </tr>
-            <tr class="index-table-tr">
-                <td class="index-table-td index-table-td-rank">1</td>
-                <td class="index-table-td">我的名字竟然能如此之长</td>
-            </tr>
-            <tr class="index-table-tr">
-                <td class="index-table-td index-table-td-rank">1</td>
-                <td class="index-table-td">我的名字竟然能如此之长</td>
-            </tr>
-            <tr class="index-table-tr">
-                <td class="index-table-td index-table-td-rank">1</td>
-                <td class="index-table-td">我的名字竟然能如此之长</td>
-            </tr>
-            <tr class="index-table-tr">
-                <td class="index-table-td index-table-td-rank">1</td>
-                <td class="index-table-td">我的名字竟然能如此之长</td>
-            </tr>
-            <tr class="index-table-tr">
-                <td class="index-table-td index-table-td-rank">1</td>
-                <td class="index-table-td">我的名字竟然能如此之长</td>
-            </tr>
-        </table>
+        <div class="title-container">
+            <h2 class="index-title">最新单曲</h2>
+        </div>
 
-        <table class="index-table">
-            <tr class="index-table-tr">
-                <th class="index-table-th" colspan="2">音乐榜单</th>
-            </tr>
-            <tr class="index-table-tr">
-                <td class="index-table-td index-table-td-rank">1</td>
-                <td class="index-table-td">我的名字竟然能如此之长</td>
-            </tr>
-            <tr class="index-table-tr">
-                <td class="index-table-td index-table-td-rank">1</td>
-                <td class="index-table-td">我的名字竟然能如此之长</td>
-            </tr>
-            <tr class="index-table-tr">
-                <td class="index-table-td index-table-td-rank">1</td>
-                <td class="index-table-td">我的名字竟然能如此之长</td>
-            </tr>
-            <tr class="index-table-tr">
-                <td class="index-table-td index-table-td-rank">1</td>
-                <td class="index-table-td">我的名字竟然能如此之长</td>
-            </tr>
-            <tr class="index-table-tr">
-                <td class="index-table-td index-table-td-rank">1</td>
-                <td class="index-table-td">我的名字竟然能如此之长</td>
-            </tr>
-            <tr class="index-table-tr">
-                <td class="index-table-td index-table-td-rank">1</td>
-                <td class="index-table-td">我的名字竟然能如此之长</td>
-            </tr>
-            <tr class="index-table-tr">
-                <td class="index-table-td index-table-td-rank">1</td>
-                <td class="index-table-td">我的名字竟然能如此之长</td>
-            </tr>
-            <tr class="index-table-tr">
-                <td class="index-table-td index-table-td-rank">1</td>
-                <td class="index-table-td">我的名字竟然能如此之长</td>
-            </tr>
-            <tr class="index-table-tr">
-                <td class="index-table-td index-table-td-rank">1</td>
-                <td class="index-table-td">我的名字竟然能如此之长</td>
-            </tr>
-        </table>
+        <div class="card-container">
+            <MusicCard></MusicCard>
+            <MusicCard></MusicCard>
+            <MusicCard></MusicCard>
+            <MusicCard></MusicCard>
+            <MusicCard></MusicCard>
+            <MusicCard></MusicCard>
+            <MusicCard></MusicCard>
+            <MusicCard></MusicCard>
+            <MusicCard></MusicCard>
+        </div>
+
+        <div class="title-container">
+            <h2 class="index-title">最新文章</h2>
+        </div>
+        <ArticleCard></ArticleCard>
+        <ArticleCard></ArticleCard>
+        <ArticleCard></ArticleCard>
+        <ArticleCard></ArticleCard>
+        <ArticleCard></ArticleCard>
+
+        <VidsicFooter />
     </div>
 </template>
 
 <script>
 import VidsicHeader from '../components/vidsic-header.vue'
+import VidsicFooter from '../components/vidsic-footer.vue'
+import VideoCard from '../components/video-card.vue'
+import MusicCard from "../components/music-card.vue"
+import ArticleCard from '../components/article-card.vue'
 
 export default {
     name: 'Index',
-    components: { VidsicHeader }
+    components: { VidsicHeader, VidsicFooter, VideoCard, MusicCard,ArticleCard }
 }
 </script>
 
@@ -116,55 +71,35 @@ export default {
 .index-top {
     background-color: #409eff;
     border-radius: 5px;
-    height: 506px;
+    height: 800px;
     margin-top: 100px;
-    width: 900px;
+    width: 1200px;
 }
 
-.index-btn-group {
+.title-container {
+    border-bottom: #409EFF solid 3px;
+    margin-top: 100px;
+    width: 1200px;
+}
+.index-title {
+    color: #303133;
+    font-size: 30px;
+    letter-spacing: 20px;
+    text-align: left;
+}
+
+.card-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 20px;
-    width: 900px;
-}
-.index-btn {
-    background-color: #e6a23c;
-    border-radius: 5px;
-    height: 150px;
-    margin-top: 20px;
-    width: 440px;
+    width: 1200px;
 }
 
-.index-table {
-    border-collapse: collapse;
-    border-radius: 5px;
-    margin-bottom: 40px;
-    margin-top: 40px;
-    width: 900px;
+.video-card {
+    margin: 49px;
 }
-.index-table-tr {
-    border-radius: 5px;
-}
-.index-table-tr:hover {
-    background-color: #ebeef5;
-}
-.index-table-th {
-    background-color: #67c23a;
-    color: #fff;
-    font-size: 30px;
-    padding: 10px 0px;
-}
-.index-table-td {
-    color: #606266;
-    font-size: 30px;
-    min-width: 10px;
-    padding: 10px 60px 10px 0px;
-    text-align: right;
-}
-.index-table-td-rank {
-    font-size: 30px;
-    font-weight: bold;
+
+.music-card {
+    margin: 49px;
 }
 </style>

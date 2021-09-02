@@ -7,16 +7,26 @@
             <router-link to="/article" class="sidebar-nav-a">专栏</router-link>
         </nav>
 
-        <div class="sidebar-nav-group">
+        <div v-if="isLogin == false" class="sidebar-nav-group">
             <router-link to="/login" class="sidebar-nav-a">登录</router-link>
             <router-link to="/register" class="sidebar-nav-a">注册</router-link>
+        </div>
+        <div v-else class="sidebar-nav-group">
+            <router-link to="/user" class="sidebar-nav-a sidebar-img-container">
+            <img src="../assets/logo.png" class="sidebar-img">
+        </router-link>
         </div>
     </header>
 </template>
 
 <script>
 export default {
-    name: 'vidsicSidebar'
+    name: 'vidsicSidebar',
+    data() {
+        return {
+            isLogin: false
+        }
+    }
 }
 </script>
 
@@ -67,5 +77,19 @@ export default {
     border: #f56c6c solid 2px;
     color: #fff;
     transition: all 0.2s ease-out;
+}
+
+.sidebar-img-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar-img {
+    border-radius: 50%;
+    height: 49px;
+    margin: 0px;
+    padding: 0px;
+    width: 49px;
 }
 </style>
