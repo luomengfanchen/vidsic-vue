@@ -21,8 +21,31 @@
 </template>
 
 <script>
+import { normalAxios } from '../plugins/axios.js'
+
 export default {
     name: 'Login',
+    data() {
+        return {
+            email: '',
+            password: ''
+        }
+    },
+    methods: {
+        login: () => {
+            normalAxios
+                .post('/login', {
+                    email: this.email,
+                    password: this.password
+                })
+                .then(() => {
+                    this.$router.push('/')
+                })
+                .catch(() => {
+                    window.alert('error')
+                })
+        }
+    }
 }
 </script>
 

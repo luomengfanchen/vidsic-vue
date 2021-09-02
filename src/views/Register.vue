@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="register-input">
-                    <label for="account" class="register-label">出生日期</label>
+                    <label for="account" class="register-label">生日</label>
                     <input type="text" class="register-input-text"/>
                 </div>
 
@@ -41,8 +41,38 @@
 </template>
 
 <script>
+import { normalAxios } from '../plugins/axios.js'
+
 export default {
-    name: 'Register'
+    name: 'Register',
+    data() {
+        return {
+            nickname: '',
+            email: '',
+            password: '',
+            confirm: '',
+            birthday: '',
+            intro: ''
+        }
+    },
+    methods: {
+        register: () => {
+            normalAxios
+                .post('/register', {
+                    nickname: this.nickname,
+                    email: this.email,
+                    password: this.password,
+                    birthday: this.birthday,
+                    intro: this.intro
+                })
+                .then(() => {
+                    this.$router.push('/login')
+                })
+                .catch(() => {
+                    window.alert('error')
+                })
+        }
+    }
 }
 </script>
 
