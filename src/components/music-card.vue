@@ -15,7 +15,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .music-card {
     align-items: center;
     border: #DCDFE6 solid 1px;
