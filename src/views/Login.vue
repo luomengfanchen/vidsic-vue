@@ -6,15 +6,28 @@
             <form id="form">
                 <div class="login-input">
                     <label for="account" class="login-label">邮箱</label>
-                    <input type="text" class="login-input-text"/>
+                    <input
+                        type="text"
+                        class="login-input-text"
+                        v-model="email"
+                    />
                 </div>
 
                 <div class="login-input">
                     <label for="password" class="login-label">密码</label>
-                    <input type="password" class="login-input-text"/>
+                    <input
+                        type="password"
+                        class="login-input-text"
+                        v-model="password"
+                    />
                 </div>
 
-                <input type="button" value="登陆" class="login-button"/>
+                <input
+                    type="button"
+                    value="登陆"
+                    class="login-button"
+                    @click="login"
+                />
             </form>
         </div>
     </div>
@@ -27,18 +40,30 @@ export default {
     name: 'Login',
     data() {
         return {
-            email: '',
-            password: ''
+            email: 'beta@example.com',
+            password: '123456'
         }
     },
     methods: {
-        login: () => {
+        // 发送登录请求
+        login: function() {
             normalAxios
                 .post('/login', {
                     email: this.email,
                     password: this.password
                 })
-                .then(() => {
+                // 若成功
+                .then((response) => {
+                    // 设置会话存储
+                    sessionStorage.setItem('token', response.data.data.token)
+
+                    // 改写vuex数据
+                    this.$store.dispatch(
+                        'asyncLoginStatus',
+                        response.data.data.token
+                    )
+
+                    // 转到首页
                     this.$router.push('/')
                 })
                 .catch(() => {

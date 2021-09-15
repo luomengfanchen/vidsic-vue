@@ -7,14 +7,24 @@
             <router-link to="/article" class="sidebar-nav-a">专栏</router-link>
         </nav>
 
-        <div v-if="isLogin == false" class="sidebar-nav-group">
+        <div
+            class="sidebar-nav-group"
+            v-if="$store.getters.getLoginStatus == undefined"
+        >
             <router-link to="/login" class="sidebar-nav-a">登录</router-link>
             <router-link to="/register" class="sidebar-nav-a">注册</router-link>
         </div>
-        <div v-else class="sidebar-nav-group">
-            <router-link to="/user" class="sidebar-nav-a sidebar-img-container">
-            <img src="../assets/logo.png" class="sidebar-img">
-        </router-link>
+
+        <div class="sidebar-nav-group" v-else>
+            <router-link
+                to="/user/index"
+                class="sidebar-nav-a sidebar-img-container"
+            >
+                <img src="../assets/logo.png" class="sidebar-img" />
+            </router-link>
+            <router-link to="/user/upload" class="sidebar-nav-a"
+                >投稿</router-link
+            >
         </div>
     </header>
 </template>
@@ -24,7 +34,7 @@ export default {
     name: 'vidsicSidebar',
     data() {
         return {
-            isLogin: false
+            isLogin: true
         }
     }
 }
