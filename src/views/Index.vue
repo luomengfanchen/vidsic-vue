@@ -8,15 +8,7 @@
             <h2 class="index-title">最新视频</h2>
         </div>
         <div class="card-container">
-            <VideoCard></VideoCard>
-            <VideoCard></VideoCard>
-            <VideoCard></VideoCard>
-            <VideoCard></VideoCard>
-            <VideoCard></VideoCard>
-            <VideoCard></VideoCard>
-            <VideoCard></VideoCard>
-            <VideoCard></VideoCard>
-            <VideoCard></VideoCard>
+            <VideoCard :videoInfo="videoList"></VideoCard>
         </div>
 
         <div class="title-container">
@@ -27,19 +19,11 @@
             <MusicCard></MusicCard>
             <MusicCard></MusicCard>
             <MusicCard></MusicCard>
-            <MusicCard></MusicCard>
-            <MusicCard></MusicCard>
-            <MusicCard></MusicCard>
-            <MusicCard></MusicCard>
-            <MusicCard></MusicCard>
-            <MusicCard></MusicCard>
         </div>
 
         <div class="title-container">
             <h2 class="index-title">最新文章</h2>
         </div>
-        <ArticleCard></ArticleCard>
-        <ArticleCard></ArticleCard>
         <ArticleCard></ArticleCard>
         <ArticleCard></ArticleCard>
         <ArticleCard></ArticleCard>
@@ -52,12 +36,34 @@
 import VidsicHeader from '../components/vidsic-header.vue'
 import VidsicFooter from '../components/vidsic-footer.vue'
 import VideoCard from '../components/video-card.vue'
-import MusicCard from "../components/music-card.vue"
+import MusicCard from '../components/music-card.vue'
 import ArticleCard from '../components/article-card.vue'
+import {normalAxios} from '../plugins/axios.js'
 
 export default {
     name: 'Index',
-    components: { VidsicHeader, VidsicFooter, VideoCard, MusicCard,ArticleCard }
+    data() {
+        return {
+            videoList: []
+        }
+    },
+    components: {
+        VidsicHeader,
+        VidsicFooter,
+        VideoCard,
+        MusicCard,
+        ArticleCard
+    },
+    mounted() {
+        normalAxios
+            .get('/video?num=3')
+            .then((response) => {
+                this.videoList = response.data.data
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
 }
 </script>
 
@@ -71,13 +77,13 @@ export default {
 .index-top {
     background-color: #409eff;
     border-radius: 5px;
-    height: 800px;
+    height: 600px;
     margin-top: 100px;
     width: 1200px;
 }
 
 .title-container {
-    border-bottom: #409EFF solid 3px;
+    border-bottom: #409eff solid 3px;
     margin-top: 100px;
     width: 1200px;
 }

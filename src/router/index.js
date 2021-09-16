@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Index from '../views/Index.vue'
 
 const routes = [
+    // 公共页面
     {
         path: '/',
         name: 'Index',
@@ -51,6 +52,32 @@ const routes = [
         path: '/register',
         name: 'Register',
         component: () => import('../views/Register.vue')
+    },
+    // 用户的页面
+    {
+        path: '/user/index',
+        name: 'UserIndex',
+        component: () => import('../views/user/Index.vue')
+    },
+    {
+        path: '/user/upload',
+        name: 'UserUpload',
+        component: () => import('../views/user/Upload.vue')
+    },
+    {
+        path: '/user/upload/article',
+        name: 'UploadArticle',
+        component: () => import('../views/user/UploadArticle.vue')
+    },
+    {
+        path: '/user/upload/video',
+        name: 'UploadVideo',
+        component: () => import('../views/user/UploadVideo.vue')
+    },
+    {
+        path: '/user/upload/music',
+        name: 'UploadMusic',
+        component: () => import('../views/user/UploadMusic.vue')
     },
     // 404页面
     {

@@ -1,12 +1,12 @@
 <template>
     <div class="video-container">
         <div class="player-container">
-            <h2 class="video-title">我是一个视频的标题( ´･･)ﾉ(._.`)</h2>
+            <h2 class="video-title">{{ videoInfo.name }}</h2>
             <div class="video-descript">
-                <span class="video-descript-text">发布日期: 2021-11-11</span>
-                <span class="video-descript-text">播放量: 1124142</span>
+                <span class="video-descript-text">发布日期: {{ videoInfo.date }}</span>
+                <span class="video-descript-text">播放量: {{ videoInfo.views }}</span>
             </div>
-            <video controls src="" class="video-player"></video>
+            <video controls :src="$store.getters.getbaseURL + videoInfo.path" class="video-player"></video>
 
             <div class="video-operator">
                 
@@ -17,8 +17,25 @@
 </template>
 
 <script>
+import {normalAxios} from '../plugins/axios.js'
+
 export default {
     name: 'VideoPlayer',
+    data() {
+        return {
+            videoInfo: ''
+        }
+    },
+    mounted() {
+        normalAxios
+            .get('/video/' + this.$route.params.id)
+            .then((response) => {
+                this.videoInfo = response.data.data
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
 }
 </script>
 

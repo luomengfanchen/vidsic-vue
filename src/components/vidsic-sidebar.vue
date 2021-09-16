@@ -20,7 +20,7 @@
                 to="/user/index"
                 class="sidebar-nav-a sidebar-img-container"
             >
-                <img src="../assets/logo.png" class="sidebar-img" />
+                <img :src="$store.getters.getbaseURL + $store.getters.getAvator" class="sidebar-img" />
             </router-link>
             <router-link to="/user/upload" class="sidebar-nav-a"
                 >投稿</router-link

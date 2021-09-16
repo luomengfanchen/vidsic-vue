@@ -1,17 +1,18 @@
 <template>
-    <div class="video-card">
-        <img src="" alt="" class="video-img">
-        <a href="" class="video-title">this is title</a>
+    <div class="video-card" v-for="item in videoInfo" :key="item.id">
+        <img :src="$store.getters.getbaseURL + item.cover" alt="" class="video-img">
+        <router-link :to="'/video/' + item.id" class="video-title">{{ item.name }}</router-link>
         <div class="video-data-container">
-            <span class="video-data">上传时间: 2020-20-20</span>
-            <span class="video-data">UP: beta</span>
+            <span class="video-data">上传时间: {{ item.date }}</span>
+            <span class="video-data">UP: {{ item.author }}</span>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'VideoCard'
+    name: 'VideoCard',
+    props: ['videoInfo']
 }
 </script>
 
@@ -24,6 +25,7 @@ export default {
     flex-direction: column;
     height: 300px;
     justify-content: space-between;
+    margin: 49px;
     width: 300px;
 }
 
