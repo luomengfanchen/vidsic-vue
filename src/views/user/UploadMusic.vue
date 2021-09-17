@@ -1,34 +1,34 @@
 <template>
-    <div class="video-container">
-        <div class="video-card">
-            <h2 class="video-title">视频投稿</h2>
+    <div class="music-container">
+        <div class="music-card">
+            <h2 class="video-title">音乐投稿</h2>
 
             <div class="video-input-container">
-                <label for="">视频：</label>
+                <label for="">音乐：</label>
                 <input
                     type="text"
                     class="video-input"
                     readonly
-                    v-model.trim="videoName"
+                    v-model.trim="musicName"
                 />
                 <div class="video-button">
-                    上传视频
+                    上传音乐
                     <input
                         type="file"
                         class="video-input-file"
-                        accept="video/*"
-                        @change="uploadvideo"
+                        accept="audio/*"
+                        @change="uploadMusic"
                     />
                 </div>
             </div>
             <div class="video-input-container">
                 <label for="">进度：</label>
                 <progress
-                    :value="videoProgress"
+                    :value="musicProgress"
                     max="100"
                     class="video-progress"
                 ></progress>
-                <span>{{ videoProgress }} %</span>
+                <span>{{ musicProgress }} %</span>
             </div>
 
             <div class="video-input-container">
@@ -45,7 +45,7 @@
                         type="file"
                         class="video-input-file"
                         accept="image/*"
-                        @change="uploadimage"
+                        @change="uploadImage"
                     />
                 </div>
             </div>
@@ -63,13 +63,17 @@
                 <label for="">标题：</label>
                 <input type="text" class="video-input" v-model.trim="name" />
                 <select class="video-type" v-model.trim="type">
-                    <option value="科技区">科技区</option>
-                    <option value="游戏区">游戏区</option>
-                    <option value="数码区">数码区</option>
-                    <option value="番剧">番剧</option>
-                    <option value="电影">电影</option>
-                    <option value="纪录片">纪录片</option>
+                    <option value="纯音">纯音</option>
+                    <option value="ACG">ACG</option>
+                    <option value="国风">国风</option>
+                    <option value="英语">英语</option>
+                    <option value="电音">电音</option>
                 </select>
+            </div>
+
+            <div class="video-input-container">
+                <label for="">歌手：</label>
+                <input type="text" class="video-input" v-model.trim="singer" />
             </div>
 
             <div class="video-input-container">
@@ -97,37 +101,37 @@
 import { authAxios, authUploadAxios } from '../../plugins/axios.js'
 
 export default {
-    name: 'UploadVideo',
+    name: 'UploadMusic',
     data() {
         return {
-            // 前端效果变量
-            videoName: '',
-            videoProgress: 0,
+            musicName: '',
+            musicProgress: 0,
             imageName: '',
             imageProgress: 0,
             // 输入信息
             name: '',
+            singer: '',
             descript: '',
             type: '',
             // 接收后端效果变量
-            videoId: '',
+            musicId: '',
             imageId: ''
         }
     },
     methods: {
-        // 上传视频文件
-        uploadvideo(e) {
-            this.videoName = String(e.target.files[0].name)
+        // 上传音乐文件
+        uploadMusic(e) {
+            this.musicName = String(e.target.files[0].name)
 
             let formData = new FormData()
             formData.append('file', e.target.files[0])
 
             authUploadAxios
-                .post('/commit?type=video', formData, {
+                .post('/commit?type=music', formData, {
                     // 进度条监听
                     onUploadProgress: (progressEvent) => {
                         if (progressEvent.lengthComputable) {
-                            this.videoProgress =
+                            this.musicProgress =
                                 ((progressEvent.loaded / progressEvent.total) *
                                     100) |
                                 0
@@ -135,7 +139,7 @@ export default {
                     }
                 })
                 .then((response) => {
-                    this.videoId = response.data.data.id
+                    this.musicId = response.data.data.id
                 })
                 .catch((error) => {
                     console.log(error)
@@ -143,7 +147,7 @@ export default {
         },
 
         // 上传封面文件
-        uploadimage(e) {
+        uploadImage(e) {
             this.imageName = String(e.target.files[0].name)
 
             let formData = new FormData()
@@ -172,11 +176,12 @@ export default {
         // 上传文件信息
         uploadSubmit() {
             authAxios
-                .post('/upload?type=video', {
+                .post('/upload?type=music', {
                     name: this.name,
+                    singer: this.singer,
                     descript: this.descript,
                     type: this.type,
-                    media: this.videoId,
+                    media: this.musicId,
                     cover: this.imageId
                 })
                 .then((response) => {
@@ -191,7 +196,7 @@ export default {
 </script>
 
 <style scoped>
-.video-container {
+.music-container {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -199,11 +204,7 @@ export default {
     margin-left: 75px;
 }
 
-.video-card {
-    /* align-items: center; */
-    /* border: #000 solid 1px; */
-    display: flex;
-    flex-direction: column;
+.music-card {
     margin-top: 100px;
     padding: 100px;
     width: 1000px;
@@ -251,7 +252,7 @@ export default {
     background-color: #dcdfe6;
 }
 .video-progress::-webkit-progress-value {
-    background-color: #409eff;
+    background-color: #67c23a;
 }
 
 .video-textarea {
@@ -267,7 +268,7 @@ export default {
 }
 
 .video-button {
-    background-color: #409eff;
+    background-color: #67c23a;
     border: none;
     border-radius: 5px;
     color: #fff;
@@ -291,7 +292,7 @@ export default {
 }
 
 .video-submit {
-    background-color: #409eff;
+    background-color: #67c23a;
     border: none;
     border-radius: 5px;
     color: #fff;

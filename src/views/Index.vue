@@ -16,9 +16,7 @@
         </div>
 
         <div class="card-container">
-            <MusicCard></MusicCard>
-            <MusicCard></MusicCard>
-            <MusicCard></MusicCard>
+            <MusicCard :musicInfo="musicList"></MusicCard>
         </div>
 
         <div class="title-container">
@@ -44,7 +42,8 @@ export default {
     name: 'Index',
     data() {
         return {
-            videoList: []
+            videoList: [],
+            musicList: []
         }
     },
     components: {
@@ -55,10 +54,20 @@ export default {
         ArticleCard
     },
     mounted() {
+        // 获取最新视频信息
         normalAxios
             .get('/video?num=3')
             .then((response) => {
                 this.videoList = response.data.data
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+        // 获取最新音乐信息
+        normalAxios
+            .get('/music?num=3')
+            .then((response) => {
+                this.musicList = response.data.data
             })
             .catch((error) => {
                 console.log(error)

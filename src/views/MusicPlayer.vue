@@ -2,24 +2,48 @@
     <div class="music-container">
         <div class="player-container">
             <div class="music-img">
-                <img src="" alt="" />
+                <img
+                    :src="$store.getters.getbaseURL + musicInfo.cover"
+                    class="music-img"
+                />
             </div>
 
             <div class="music-descript">
-                <h2 class="music-title">我是一首歌的标题( ´･･)ﾉ(._.`)</h2>
+                <h2 class="music-title">{{ musicInfo.name }}</h2>
                 <div class="music-lyrics">
                     <p>暂无歌词</p>
                 </div>
             </div>
         </div>
 
-        <audio src="" controls class="music-player"></audio>
+        <audio
+            :src="$store.getters.getbaseURL + musicInfo.path"
+            controls
+            class="music-player"
+        ></audio>
     </div>
 </template>
 
 <script>
+import { normalAxios } from '../plugins/axios.js'
+
 export default {
-    name: 'MusicPlayer'
+    name: 'MusicPlayer',
+    data() {
+        return {
+            musicInfo: ''
+        }
+    },
+    mounted() {
+        normalAxios
+            .get('/music/' + this.$route.params.id)
+            .then((response) => {
+                this.musicInfo = response.data.data
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
 }
 </script>
 
@@ -45,6 +69,7 @@ export default {
 .music-title {
     font-size: 20px;
     letter-spacing: 10px;
+    text-align: center;
 }
 
 .music-card-container {
