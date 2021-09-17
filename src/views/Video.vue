@@ -4,25 +4,34 @@
             <h2 class="video-title">最新视频</h2>
         </div>
         <div class="video-card-container">
-            <VideoCard></VideoCard>
-            <VideoCard></VideoCard>
-            <VideoCard></VideoCard>
-            <VideoCard></VideoCard>
-            <VideoCard></VideoCard>
-            <VideoCard></VideoCard>
-            <VideoCard></VideoCard>
-            <VideoCard></VideoCard>
-            <VideoCard></VideoCard>
+            <VideoCard :videoInfo="videoList"></VideoCard>
         </div>
     </div>
 </template>
 
 <script>
 import VideoCard from '../components/video-card.vue'
+import {normalAxios} from '../plugins/axios.js'
 
 export default {
     name: 'Video',
-    components: { VideoCard }
+    data() {
+        return {
+            videoList: [],
+        }
+    },
+    components: { VideoCard },
+    mounted() {
+        // 获取最新视频信息
+        normalAxios
+            .get('/video?num=12')
+            .then((response) => {
+                this.videoList = response.data.data
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
 }
 </script>
 

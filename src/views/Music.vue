@@ -5,25 +5,34 @@
         </div>
 
         <div class="music-card-container">
-            <MusicCard></MusicCard>
-            <MusicCard></MusicCard>
-            <MusicCard></MusicCard>
-            <MusicCard></MusicCard>
-            <MusicCard></MusicCard>
-            <MusicCard></MusicCard>
-            <MusicCard></MusicCard>
-            <MusicCard></MusicCard>
-            <MusicCard></MusicCard>
+            <MusicCard :musicInfo="musicList"></MusicCard>
         </div>
     </div>
 </template>
 
 <script>
 import MusicCard from "../components/music-card.vue"
+import {normalAxios} from '../plugins/axios.js'
 
 export default {
     name: 'Music',
-    components: { MusicCard }
+    data() {
+        return {
+            musicList: []
+        }
+    },
+    components: { MusicCard },
+    mounted() {
+        // 获取最新音乐信息
+        normalAxios
+            .get('/music?num=12')
+            .then((response) => {
+                this.musicList = response.data.data
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
 }
 </script>
 
