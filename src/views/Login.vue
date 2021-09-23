@@ -56,11 +56,16 @@ export default {
                 .then((response) => {
                     // 设置会话存储
                     sessionStorage.setItem('token', response.data.data.token)
+                    sessionStorage.setItem('avator', response.data.data.avator)
 
                     // 改写vuex数据
                     this.$store.dispatch(
                         'asyncLoginStatus',
                         response.data.data.token
+                    )
+                    this.$store.dispatch(
+                        'asyncAvator',
+                        response.data.data.avator
                     )
 
                     // 转到首页
