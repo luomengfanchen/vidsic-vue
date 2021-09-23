@@ -1,12 +1,28 @@
 <template>
     <header class="header-container">
-        <input type="text" class="header-search" placeholder="请搜索你感兴趣的内容( •̀ ω •́ )">
+        <input
+            type="text"
+            class="header-search"
+            placeholder="请搜索你感兴趣的内容( •̀ ω •́ )"
+            v-model="searchStr"
+            @keypress.enter="search"
+        />
     </header>
 </template>
 
 <script>
 export default {
     name: 'VidsicHeader',
+    data() {
+        return {
+            searchStr: ''
+        }
+    },
+    methods: {
+        search: function() {
+            this.$router.push('/search/' + this.searchStr)
+        }
+    }
 }
 </script>
 
