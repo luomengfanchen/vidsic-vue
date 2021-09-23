@@ -9,28 +9,65 @@
                 <div>
                     <p class="user-descript-content">
                         昵称:
-                        <input type="text" readonly class="user-descript-input" />
+                        <input
+                            type="text"
+                            readonly
+                            class="user-descript-input"
+                            :value="user.nickname"
+                        />
                     </p>
                     <p class="user-descript-content">
                         邮箱:
-                        <input type="text" readonly class="user-descript-input" />
+                        <input
+                            type="text"
+                            readonly
+                            class="user-descript-input"
+                            :value="user.email"
+                        />
                     </p>
                     <p class="user-descript-content">
                         生日:
-                        <input type="text" readonly class="user-descript-input" />
+                        <input
+                            type="text"
+                            readonly
+                            class="user-descript-input"
+                            :value="user.birthday"
+                        />
                     </p>
                 </div>
-                <img src="" class="user-avator" />
+                <img :src="user.avator" class="user-avator" />
             </div>
 
-            <textarea readonly class="user-intro"></textarea>
+            <textarea
+                readonly
+                class="user-intro"
+                :value="user.intro"
+            ></textarea>
         </div>
     </div>
 </template>
 
 <script>
+import { authAxios } from '../../plugins/axios.js'
+
 export default {
-    name: 'UserIndex'
+    name: 'UserIndex',
+    data() {
+        return {
+            user: {}
+        }
+    },
+    mounted() {
+        authAxios
+            .get('/info')
+            .then((response) => {
+                console.log(response.data.data)
+                this.user = response.data.data
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
 }
 </script>
 
@@ -44,7 +81,7 @@ export default {
 }
 
 .user-card {
-    border: #DCDFE6 solid 1px;
+    border: #dcdfe6 solid 1px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -79,7 +116,7 @@ export default {
 }
 
 .user-descript-input {
-    border: #DCDFE6 solid 2px;
+    border: #dcdfe6 solid 2px;
     border-radius: 5px;
     color: #303133;
     font-size: 20px;
@@ -93,11 +130,11 @@ export default {
 .user-avator {
     border-radius: 50%;
     height: 210px;
-    width: 140px;
+    width: 210px;
 }
 
 .user-intro {
-    border: #DCDFE6 solid 2px;
+    border: #dcdfe6 solid 2px;
     border-radius: 5px;
     font-size: 30px;
     height: 300px;
