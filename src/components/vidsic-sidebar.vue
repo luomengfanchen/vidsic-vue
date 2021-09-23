@@ -4,7 +4,6 @@
             <router-link to="/" class="sidebar-nav-a">vidsic</router-link>
             <router-link to="/video" class="sidebar-nav-a">视频</router-link>
             <router-link to="/music" class="sidebar-nav-a">音乐</router-link>
-            <router-link to="/article" class="sidebar-nav-a">专栏</router-link>
         </nav>
 
         <div

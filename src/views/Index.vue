@@ -19,13 +19,6 @@
             <MusicCard :musicInfo="musicList"></MusicCard>
         </div>
 
-        <div class="title-container">
-            <h2 class="index-title">最新文章</h2>
-        </div>
-        <ArticleCard></ArticleCard>
-        <ArticleCard></ArticleCard>
-        <ArticleCard></ArticleCard>
-
         <VidsicFooter />
     </div>
 </template>
@@ -35,7 +28,6 @@ import VidsicHeader from '../components/vidsic-header.vue'
 import VidsicFooter from '../components/vidsic-footer.vue'
 import VideoCard from '../components/video-card.vue'
 import MusicCard from '../components/music-card.vue'
-import ArticleCard from '../components/article-card.vue'
 import {normalAxios} from '../plugins/axios.js'
 
 export default {
@@ -50,8 +42,7 @@ export default {
         VidsicHeader,
         VidsicFooter,
         VideoCard,
-        MusicCard,
-        ArticleCard
+        MusicCard
     },
     mounted() {
         // 获取最新视频信息

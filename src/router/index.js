@@ -9,7 +9,7 @@ const routes = [
         component: Index
     },
     {
-        path: '/search',
+        path: '/search/:value',
         name: 'Search',
         component: () => import('../views/Search.vue')
     },
@@ -32,16 +32,6 @@ const routes = [
         path: '/music/:id',
         name: 'MusicPlayer',
         component: () => import('../views/MusicPlayer.vue')
-    },
-    {
-        path: '/article',
-        name: 'Article',
-        component: () => import('../views/Article.vue')
-    },
-    {
-        path: '/article/:id',
-        name: 'ArticleRender',
-        component: () => import('../views/ArticleRender.vue')
     },
     {
         path: '/login',

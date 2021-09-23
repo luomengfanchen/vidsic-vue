@@ -19,15 +19,6 @@
                     >投稿</router-link
                 >
             </div>
-            <div class="upload-button">
-                <h3 class="upload-title">文章投稿</h3>
-                <router-link
-                    to="/user/upload/article"
-                    class="upload-link"
-                    style="background-color: #E6A23C"
-                    >投稿</router-link
-                >
-            </div>
         </div>
     </div>
 </template>
@@ -67,7 +58,7 @@ export default {
     flex-direction: column;
     height: 500px;
     justify-content: space-around;
-    width: 300px;
+    width: 400px;
 }
 .upload-button:hover {
     box-shadow: 0px 3px 5px 0px #909399;
