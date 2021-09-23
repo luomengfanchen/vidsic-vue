@@ -55,11 +55,6 @@ const routes = [
         component: () => import('../views/user/Upload.vue')
     },
     {
-        path: '/user/upload/article',
-        name: 'UploadArticle',
-        component: () => import('../views/user/UploadArticle.vue')
-    },
-    {
         path: '/user/upload/video',
         name: 'UploadVideo',
         component: () => import('../views/user/UploadVideo.vue')

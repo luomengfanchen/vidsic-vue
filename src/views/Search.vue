@@ -17,20 +17,12 @@
         <div class="card-container">
             <MusicCard :musicInfo="musicList"></MusicCard>
         </div>
-
-        <div class="title-container">
-            <h2 class="search-title">
-                搜索专栏结果
-            </h2>
-        </div>
-        <ArticleCard></ArticleCard>
     </div>
 </template>
 
 <script>
 import VideoCard from '../components/video-card.vue'
 import MusicCard from '../components/music-card.vue'
-import ArticleCard from '../components/article-card.vue'
 import { normalAxios } from '../plugins/axios.js'
 
 export default {
@@ -43,8 +35,7 @@ export default {
     },
     components: {
         VideoCard,
-        MusicCard,
-        ArticleCard
+        MusicCard
     },
     mounted() {
         // 搜索视频信息
