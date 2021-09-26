@@ -136,9 +136,10 @@ export default {
                 })
                 .then((response) => {
                     this.videoId = response.data.data.id
+                    this.$message.success('文件上传成功')
                 })
-                .catch((error) => {
-                    console.log(error)
+                .catch(() => {
+                    this.$message.error('文件上传失败')
                 })
         },
 
@@ -163,9 +164,10 @@ export default {
                 })
                 .then((response) => {
                     this.imageId = response.data.data.id
+                    this.$message.success('封面上传成功')
                 })
-                .catch((error) => {
-                    console.log(error)
+                .catch(() => {
+                    this.$message.error('封面上传失败')
                 })
         },
 
@@ -179,11 +181,13 @@ export default {
                     media: this.videoId,
                     cover: this.imageId
                 })
-                .then((response) => {
-                    console.log(response)
+                .then(() => {
+                    this.$message.success('信息上传成功')
+                    // 转到首页
+                    this.$router.push('/')
                 })
-                .catch((error) => {
-                    console.log(error)
+                .catch(() => {
+                    this.$message.error('信息上传失败')
                 })
         }
     }

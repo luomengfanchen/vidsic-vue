@@ -11,7 +11,7 @@
             <div class="music-descript">
                 <h2 class="music-title">{{ musicInfo.name }}</h2>
                 <div class="music-lyrics">
-                    <p>暂无歌词</p>
+                    <p>{{ musicInfo.descript }}</p>
                 </div>
             </div>
         </div>
@@ -40,8 +40,8 @@ export default {
             .then((response) => {
                 this.musicInfo = response.data.data
             })
-            .catch((error) => {
-                console.log(error)
+            .catch(() => {
+                this.$message.error('数据获取失败')
             })
     }
 }
@@ -60,7 +60,6 @@ export default {
 
 .music-title {
     font-size: 20px;
-    letter-spacing: 10px;
     text-align: center;
 }
 
@@ -74,6 +73,7 @@ export default {
 .music-img {
     background-color: #409eff;
     border-radius: 50%;
+    box-shadow: 0px 0px 10px 0px #909399;
     height: 500px;
     width: 500px;
 }
