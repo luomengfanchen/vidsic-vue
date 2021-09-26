@@ -51,8 +51,8 @@ export default {
             .then((response) => {
                 this.videoList = response.data.data
             })
-            .catch((error) => {
-                console.log(error)
+            .catch(() => {
+                this.$message.error('数据获取失败')
             })
         // 获取最新音乐信息
         normalAxios
@@ -60,8 +60,8 @@ export default {
             .then((response) => {
                 this.musicList = response.data.data
             })
-            .catch((error) => {
-                console.log(error)
+            .catch(() => {
+                this.$message.error('数据获取失败')
             })
     }
 }

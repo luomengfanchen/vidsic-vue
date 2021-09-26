@@ -141,8 +141,8 @@ export default {
                 .then((response) => {
                     this.musicId = response.data.data.id
                 })
-                .catch((error) => {
-                    console.log(error)
+                .catch(() => {
+                    this.$message.error('文件上传失败')
                 })
         },
 
@@ -168,8 +168,8 @@ export default {
                 .then((response) => {
                     this.imageId = response.data.data.id
                 })
-                .catch((error) => {
-                    console.log(error)
+                .catch(() => {
+                    this.$message.error('封面上传失败')
                 })
         },
 
@@ -187,8 +187,8 @@ export default {
                 .then((response) => {
                     console.log(response)
                 })
-                .catch((error) => {
-                    console.log(error)
+                .catch(() => {
+                    this.$message.error('信息上传失败')
                 })
         }
     }

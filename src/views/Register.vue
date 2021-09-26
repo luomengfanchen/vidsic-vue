@@ -69,7 +69,7 @@ export default {
                     this.$router.push('/login')
                 })
                 .catch(() => {
-                    window.alert('error')
+                    this.$message.error('注册失败')
                 })
         }
     }

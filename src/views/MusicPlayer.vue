@@ -40,8 +40,8 @@ export default {
             .then((response) => {
                 this.musicInfo = response.data.data
             })
-            .catch((error) => {
-                console.log(error)
+            .catch(() => {
+                this.$message.error('数据获取失败')
             })
     }
 }

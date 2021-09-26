@@ -68,11 +68,13 @@ export default {
                         response.data.data.avator
                     )
 
+                    this.$message.success('登录成功，欢迎回来!')
+
                     // 转到首页
                     this.$router.push('/')
                 })
                 .catch(() => {
-                    window.alert('error')
+                    this.$message.error('账号或密码错误')
                 })
         }
     }
