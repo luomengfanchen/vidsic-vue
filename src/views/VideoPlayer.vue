@@ -3,21 +3,28 @@
         <div class="player-container">
             <h2 class="video-title">{{ videoInfo.name }}</h2>
             <div class="video-descript">
-                <span class="video-descript-text">发布日期: {{ videoInfo.date }}</span>
-                <span class="video-descript-text">播放量: {{ videoInfo.views }}</span>
+                <span class="video-descript-text"
+                    >发布日期: {{ videoInfo.date }}</span
+                >
+                <span class="video-descript-text"
+                    >播放量: {{ videoInfo.views }}</span
+                >
             </div>
-            <video controls :src="$store.getters.getbaseURL + videoInfo.path" class="video-player"></video>
+            <video
+                controls
+                :src="$store.getters.getbaseURL + videoInfo.path"
+                class="video-player"
+            ></video>
 
-            <div class="video-operator">
-                
-            </div>
+            <div class="video-descript">
+            <p class="video-descript-text">{{ videoInfo.descript }}</p>
         </div>
-        
+        </div>
     </div>
 </template>
 
 <script>
-import {normalAxios} from '../plugins/axios.js'
+import { normalAxios } from '../plugins/axios.js'
 
 export default {
     name: 'VideoPlayer',
@@ -48,7 +55,6 @@ export default {
 
 .video-title {
     font-size: 20px;
-    letter-spacing: 10px;
     margin-left: 10px;
 }
 
@@ -65,5 +71,9 @@ export default {
     height: 720px;
     margin-top: 30px;
     width: 1280px;
+}
+
+.video-intro {
+    margin-top: 50px;
 }
 </style>
