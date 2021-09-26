@@ -1,5 +1,5 @@
 <template>
-    <div class="search-container">
+    <div class="vidsic-page-container">
         <div class="title-container">
             <h2 class="search-title">
                 搜索视频结果
@@ -61,15 +61,6 @@ export default {
 </script>
 
 <style scoped>
-/* 搜索容器 */
-.search-container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 74px;
-}
-
 .title-container {
     border-bottom: #409eff solid 3px;
     margin-top: 100px;

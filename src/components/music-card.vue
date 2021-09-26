@@ -32,6 +32,7 @@ export default {
 
 .music-img {
     border-radius: 50%;
+    box-shadow: 0px 0px 5px 0px #909399;
     height: 200px;
     width: 200px;
 }

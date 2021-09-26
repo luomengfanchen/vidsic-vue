@@ -1,5 +1,5 @@
 <template>
-    <div class="video-container">
+    <div class="vidsic-page-container">
         <div class="video-card">
             <h2 class="video-title">视频投稿</h2>
 
@@ -191,14 +191,6 @@ export default {
 </script>
 
 <style scoped>
-.video-container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 75px;
-}
-
 .video-card {
     /* align-items: center; */
     /* border: #000 solid 1px; */

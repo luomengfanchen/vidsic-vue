@@ -1,5 +1,5 @@
 <template>
-    <div class="notFound-container">
+    <div class="vidsic-page-container notFound-container">
         <p class="notFound-text">404</p>
         <p class="notFound-text2">Not Found</p>
     </div>
@@ -14,10 +14,7 @@ export default {
 <style scoped>
 .notFound-container {
     align-items: center;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    margin-left: 75px;
 }
 
 .notFound-text {

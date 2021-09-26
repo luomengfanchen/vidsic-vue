@@ -18,4 +18,12 @@ export default {
     margin: 0px;
     padding: 0px;
 }
+
+.vidsic-page-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 75px;
+}
 </style>

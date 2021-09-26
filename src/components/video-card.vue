@@ -31,6 +31,7 @@ export default {
 
 .video-img {
     border-radius: 10px;
+    box-shadow: 0px 2.5px 2.5px 0px #909399;
     height: 200px;
     width: 300px;
 }

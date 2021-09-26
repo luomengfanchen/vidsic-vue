@@ -1,5 +1,5 @@
 <template>
-    <div class="login-container">
+    <div class="vidsic-page-container">
         <div class="login-card">
             <h2 class="login-title">欢迎登陆</h2>
 
@@ -80,14 +80,6 @@ export default {
 </script>
 
 <style scoped>
-/* 登陆容器 */
-.login-container {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    margin-left: 74px;
-}
-
 /* 登陆卡片 */
 .login-card {
     align-items: center;

@@ -1,5 +1,5 @@
 <template>
-    <div class="register-container">
+    <div class="vidsic-page-container">
         <div class="register-card">
             <h2 class="register-title">欢迎注册</h2>
 
@@ -77,14 +77,6 @@ export default {
 </script>
 
 <style scoped>
-/* 注册容器 */
-.register-container {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    margin-left: 74px;
-}
-
 /* 注册卡片 */
 .register-card {
     align-items: center;

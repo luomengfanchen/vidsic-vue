@@ -1,5 +1,5 @@
 <template>
-    <div class="video-container">
+    <div class="vidsic-page-container">
         <div class="player-container">
             <h2 class="video-title">{{ videoInfo.name }}</h2>
             <div class="video-descript">
@@ -40,12 +40,6 @@ export default {
 </script>
 
 <style scoped>
-.video-container {
-    display: flex;
-    justify-content: center;
-    margin-left: 75px;
-}
-
 .player-container {
     height: 720px;
     margin-top: 100px;

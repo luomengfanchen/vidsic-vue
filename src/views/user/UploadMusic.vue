@@ -1,5 +1,5 @@
 <template>
-    <div class="music-container">
+    <div class="vidsic-page-container">
         <div class="music-card">
             <h2 class="video-title">音乐投稿</h2>
 
@@ -196,14 +196,6 @@ export default {
 </script>
 
 <style scoped>
-.music-container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 75px;
-}
-
 .music-card {
     margin-top: 100px;
     padding: 100px;

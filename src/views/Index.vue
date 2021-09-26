@@ -1,7 +1,7 @@
 <template>
     <vidsic-header />
 
-    <div class="index-container">
+    <div class="vidsic-page-container">
         <div class="index-top"></div>
 
         <div class="title-container">
@@ -68,13 +68,10 @@ export default {
 </script>
 
 <style scoped>
-.index-container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    margin-left: 75px;
-}
 .index-top {
+    background-image: url(../assets/banner.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
     background-color: #409eff;
     border-radius: 5px;
     height: 600px;

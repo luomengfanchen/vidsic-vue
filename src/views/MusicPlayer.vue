@@ -1,5 +1,5 @@
 <template>
-    <div class="music-container">
+    <div class="vidsic-page-container">
         <div class="player-container">
             <div class="music-img">
                 <img
@@ -48,14 +48,6 @@ export default {
 </script>
 
 <style scoped>
-.music-container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 75px;
-}
-
 .player-container {
     align-items: center;
     display: flex;

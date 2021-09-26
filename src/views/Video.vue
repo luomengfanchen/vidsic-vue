@@ -1,5 +1,5 @@
 <template>
-    <div class="video-container">
+    <div class="vidsic-page-container">
         <div class="video-title-container">
             <h2 class="video-title">最新视频</h2>
         </div>
@@ -36,13 +36,6 @@ export default {
 </script>
 
 <style scoped>
-.video-container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    margin-left: 75px;
-}
-
 .video-title-container {
     border-bottom: #409EFF solid 3px;
     margin-top: 100px;

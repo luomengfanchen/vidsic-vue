@@ -1,5 +1,5 @@
 <template>
-    <div class="user-container">
+    <div class="vidsic-page-container">
         <div class="user-card">
             <div class="user-title-container">
                 <h2 class="user-title">用户信息</h2>
@@ -61,7 +61,6 @@ export default {
         authAxios
             .get('/info')
             .then((response) => {
-                console.log(response.data.data)
                 this.user = response.data.data
             })
             .catch((error) => {
@@ -72,14 +71,6 @@ export default {
 </script>
 
 <style scoped>
-.user-container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 75px;
-}
-
 .user-card {
     border: #dcdfe6 solid 1px;
     border-radius: 10px;
@@ -128,7 +119,8 @@ export default {
 }
 
 .user-avator {
-    border-radius: 50%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px #909399;
     height: 210px;
     width: 210px;
 }

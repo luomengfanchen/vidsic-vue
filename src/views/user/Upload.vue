@@ -1,12 +1,11 @@
 <template>
-    <div class="upload-container">
+    <div class="vidsic-page-container">
         <div class="upload-card">
             <div class="upload-button">
                 <h3 class="upload-title">视频投稿</h3>
                 <router-link
                     to="/user/upload/video"
                     class="upload-link"
-                    style="background-color: #409EFF"
                     >投稿</router-link
                 >
             </div>
@@ -15,7 +14,6 @@
                 <router-link
                     to="/user/upload/music"
                     class="upload-link"
-                    style="background-color: #67C23A"
                     >投稿</router-link
                 >
             </div>
@@ -30,14 +28,6 @@ export default {
 </script>
 
 <style scoped>
-.upload-container {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 75px;
-}
-
 .upload-card {
     align-items: center;
     border-radius: 10px;
@@ -54,30 +44,30 @@ export default {
     align-items: center;
     border: #dcdfe6 solid 2px;
     border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px #909399;
     display: flex;
     flex-direction: column;
     height: 500px;
     justify-content: space-around;
     width: 400px;
 }
-.upload-button:hover {
-    box-shadow: 0px 3px 5px 0px #909399;
-}
 
 .upload-title {
-    color: #f56c6c;
+    color: #409eff;
     font-size: 30px;
 }
 
 .upload-link {
-    border: none;
+    border: #DCDFE6 solid 2px;
     border-radius: 5px;
-    color: #fff;
+    color: #303133;
     font-size: 20px;
     padding: 10px 40px;
     text-decoration: none;
 }
 .upload-link:hover {
-    box-shadow: 0px 3px 3px 0px #909399;
+    border: #f56c6c solid 2px;
+    color: #f56c6c;
+    transition: all 0.6s ease-out;
 }
 </style>
