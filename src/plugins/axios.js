@@ -7,7 +7,7 @@ const normalAxios = axios.create({
 const authAxios = axios.create({
     baseURL: '/api/auth',
     headers: {
-        Authorization: sessionStorage.getItem('token')
+        'Authorization': sessionStorage.getItem('token')
     }
 })
 

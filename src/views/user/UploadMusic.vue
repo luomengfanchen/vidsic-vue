@@ -140,6 +140,7 @@ export default {
                 })
                 .then((response) => {
                     this.musicId = response.data.data.id
+                    this.$message.success('文件上传成功')
                 })
                 .catch(() => {
                     this.$message.error('文件上传失败')
@@ -167,6 +168,7 @@ export default {
                 })
                 .then((response) => {
                     this.imageId = response.data.data.id
+                    this.$message.success('封面上传成功')
                 })
                 .catch(() => {
                     this.$message.error('封面上传失败')
@@ -184,8 +186,10 @@ export default {
                     media: this.musicId,
                     cover: this.imageId
                 })
-                .then((response) => {
-                    console.log(response)
+                .then(() => {
+                    this.$message.success('信息上传成功')
+                    // 转到首页
+                    this.$router.push('/')
                 })
                 .catch(() => {
                     this.$message.error('信息上传失败')
