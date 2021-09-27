@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import { authAxios } from '../../plugins/axios.js'
+import { authAxios } from '../../plugins/authAxios.js'
 
 export default {
     name: 'UserIndex',
@@ -62,6 +62,7 @@ export default {
             .get('/info')
             .then((response) => {
                 this.user = response.data.data
+                this.$message.success('数据获取成功')
             })
             .catch(() => {
                 this.$message.error('数据获取失败')

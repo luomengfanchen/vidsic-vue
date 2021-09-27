@@ -94,7 +94,7 @@
 </template>
 
 <script>
-import { authAxios, authUploadAxios } from '../../plugins/axios.js'
+import { authAxios, authUploadAxios } from '../../plugins/authAxios.js'
 
 export default {
     name: 'UploadVideo',
