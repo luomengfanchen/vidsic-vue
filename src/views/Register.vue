@@ -6,35 +6,65 @@
             <form id="form">
                 <div class="register-input">
                     <label for="account" class="register-label">昵称</label>
-                    <input type="text" class="register-input-text"/>
+                    <input
+                        type="text"
+                        class="register-input-text"
+                        v-model="nickname"
+                    />
                 </div>
 
                 <div class="register-input">
                     <label for="account" class="register-label">邮箱</label>
-                    <input type="text" class="register-input-text"/>
+                    <input
+                        type="text"
+                        class="register-input-text"
+                        v-model="email"
+                    />
                 </div>
 
                 <div class="register-input">
                     <label for="password" class="register-label">密码</label>
-                    <input type="password" class="register-input-text"/>
+                    <input
+                        type="password"
+                        class="register-input-text"
+                        v-model="password"
+                    />
                 </div>
 
                 <div class="register-input">
-                    <label for="password" class="register-label">确认密码</label>
-                    <input type="password" class="register-input-text"/>
+                    <label for="password" class="register-label"
+                        >确认密码</label
+                    >
+                    <input
+                        type="password"
+                        class="register-input-text"
+                        v-model="confirm"
+                    />
                 </div>
 
                 <div class="register-input">
                     <label for="account" class="register-label">生日</label>
-                    <input type="text" class="register-input-text"/>
+                    <input
+                        type="text"
+                        class="register-input-text"
+                        v-model="birthday"
+                    />
                 </div>
 
                 <div class="register-input">
                     <label for="account" class="register-label">自我介绍</label>
-                    <textarea class="register-input-text register-input-textarea"/>
+                    <textarea
+                        class="register-input-text register-input-textarea"
+                        v-model="intro"
+                    />
                 </div>
 
-                <input type="button" value="注册" class="register-button"/>
+                <input
+                    type="button"
+                    value="注册"
+                    class="register-button"
+                    @click="register"
+                />
             </form>
         </div>
     </div>
@@ -56,7 +86,7 @@ export default {
         }
     },
     methods: {
-        register: () => {
+        register: function() {
             normalAxios
                 .post('/register', {
                     nickname: this.nickname,
